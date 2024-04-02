@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 public class NaiveHashTable implements HashTableInterface{
 	private int TABLE_SIZE;
@@ -278,6 +279,17 @@ public class NaiveHashTable implements HashTableInterface{
     	}
     	return unused;
     }
+    
+    Function<String, Integer> naiveHash = key -> {
+    	int hashVal = key.hashCode();
+    	hashVal %= TABLE_SIZE;
+    	if (hashVal < 0) {
+    		hashVal += TABLE_SIZE;
+    	}
+    	return hashVal;
+    }; 
+    
 
+    
 
 }

@@ -2,11 +2,15 @@ package week3;
 
 import java.io.*;
 import java.util.*;
+import java.util.function.Function;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		String filename = "src/week3/moppet.txt";
+
+		// instantiate tablesize
+		int tableSize = 50;
 
 		BufferedReader reader = new BufferedReader(new FileReader(filename));
 		ArrayList<String> wordsList = new ArrayList<>();
@@ -18,9 +22,6 @@ public class Main {
 				wordsList.addAll(Arrays.asList(words));
 
 			}
-
-			// instantiate tablesize
-			int tableSize = 50;
 
 			String again = "y";
 			// allow the user to continuously search
@@ -42,7 +43,6 @@ public class Main {
 						menuAgain = menu(sc, naive);
 					}
 
-
 					printReport(naive, tableSize);
 
 				} else {
@@ -55,7 +55,6 @@ public class Main {
 
 					}
 
-					
 					while (menuAgain.equals("y")) {
 						menuAgain = menu(sc, sophist);
 					}
@@ -74,11 +73,13 @@ public class Main {
 
 		sc.close();
 		reader.close();
-		
+
 		System.out.println("Thank you for using this hasher!");
 		System.out.println("Goodbye");
 
 	}
+	
+
 
 	// print out all the things that need reporting
 	private static void printReport(HashTableInterface hash, int tableSize) {
@@ -111,21 +112,21 @@ public class Main {
 		return input;
 	}
 
-	//menu for user to choose what to see
+	// menu for user to choose what to see
 	private static String menu(Scanner sc, HashTableInterface hashType) {
 		System.out.println();
-		
-		//display menu
+
+		// display menu
 		System.out.println("Please select an option from the menu: ");
 		System.out.println("1) View the word count for a specific word, " + "as well as the length of it's linked list"
 				+ "\n2) View the words in descending order by word count"
 				+ "\n3) View a report on the internal structure of the hash table");
 
-		//user choice
+		// user choice
 		int menuChoice = sc.nextInt();
 		sc.nextLine();
 
-		//input val
+		// input val
 		while (menuChoice != 1 && menuChoice != 2 && menuChoice != 3) {
 			System.out.println("Invalid Entry. Enter 1,2,or 3");
 			System.out.println("Please select an option from the menu: ");
@@ -135,18 +136,17 @@ public class Main {
 							+ "\n3) View a report on the internal structure of the hash table");
 		}
 
-		//if 1, show selected word count and its linked list length
+		// if 1, show selected word count and its linked list length
 		if (menuChoice == 1) {
 			System.out.println("Enter a word to get it's count: ");
-			String word = sc.nextLine().toLowerCase();	
-			
+			String word = sc.nextLine().toLowerCase();
 
 			// connect with naive/sophist
-			System.out.println("Word Count: " + hashType.getWordCount(word) 
-			+ "\n Linked List Length: " + hashType.getLinkedListLength(word));
+			System.out.println("Word Count: " + hashType.getWordCount(word) + "\n Linked List Length: "
+					+ hashType.getLinkedListLength(word));
 		}
 
-		//if 2, show words in descending order
+		// if 2, show words in descending order
 		if (menuChoice == 2) {
 			// show words in descending order of word count
 			ArrayList<LinkedHashEntry> sorted = hashType.putInDescendingOrder();
@@ -155,12 +155,12 @@ public class Main {
 			}
 			System.out.println("");
 		}
-		//if 3, show report on internals of hash table
+		// if 3, show report on internals of hash table
 		if (menuChoice == 3) {
 			hashType.printHashTable();
 		}
 
-		//gove option to do another menu option
+		// gove option to do another menu option
 		String menuAgain = goAgain(sc, "Menu");
 		return menuAgain;
 	}

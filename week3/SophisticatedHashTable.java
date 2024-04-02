@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 public class SophisticatedHashTable implements HashTableInterface {
 	private static int TABLE_SIZE;
@@ -266,5 +267,17 @@ public class SophisticatedHashTable implements HashTableInterface {
     	}
     	return unused;
     }
+   
+    Function<String, Integer> sophisticatedHash = key -> {
+    	int prime = 17;
+    	int hashValue = 0;
+    	for (int i = 0; i < key.length(); i++) {
+    		hashValue += (int) key.charAt(i);
+    	}
+    	int hash2 = prime - (hashValue % prime);
+    	return (hashValue + hash2) % TABLE_SIZE;
+    };
+    
+    
 
 }
