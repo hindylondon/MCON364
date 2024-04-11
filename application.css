@@ -1,0 +1,40 @@
+
+.numbers {
+	-fx-font-size: 20.0px;
+	-fx-background-color: blue;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 2.0px;
+    -fx-border-radius: 5.0px;
+}
+
+.clear {
+	-fx-font-size: 20.0px;
+	-fx-background-color: red;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 2.0px;
+    -fx-border-radius: 5.0px;
+    }
+
+.equals {
+	-fx-font-size: 20.0px;
+	-fx-background-color: purple;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 2.0px;
+    -fx-border-radius: 5.0px;
+}
+
+.operators {
+	-fx-font-size: 20.0px;
+	-fx-background-color: lightgreen;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 2.0px;
+    -fx-border-radius: 5.0px;
+}
