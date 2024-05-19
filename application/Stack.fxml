@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- fxml file for the stack -->
+
+<!-- import statements -->
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- setting each container and its sizing, 
+also setting its placement relative to the other components, 
+according to the scenebuilder file built-->
+
+<!--base container is a vbox, connecting to the controller class -->
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" 
+       minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" 
+       xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StackController">
+
+<!-- here are its children -->
+   <children>
+   <!-- scrollpane so it can be as long as needed, will hold the stack elements-->
+      <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0">
+         <!-- here is where the stack elements go in a VBox -->
+         <content>
+            <VBox fx:id="stackContainer" prefHeight="200.0" prefWidth="100.0" />
+         </content>
+      </ScrollPane>
+   <!-- HBox to hold all the controls, buttons to push/pop and text to hold inputted string -->
+      <HBox fx:id="controls" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="textFieldInput"/>
+            <Button fx:id="pushButton" mnemonicParsing="false" onAction="#pushAction" text="Push" />
+            <Button fx:id="popButton" mnemonicParsing="false" onAction="#popAction" text="Pop" />
+         </children>
+      </HBox>
+      <!-- label to hold results of each button push -->
+      <Label fx:id="displayLabel" prefHeight="28.0" prefWidth="200" />
+   </children>
+</VBox>

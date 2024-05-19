@@ -1,0 +1,16 @@
+/* JavaFX CSS -fx-Property */
+
+.button {
+	-fx-background-color: lightblue;
+	-fx-border-color: black;
+}
+
+.label {
+	-fx-background-color: lightpink;
+	-fx-border-color: black;
+}
+
+#stackContainer {
+	-fx-background-color: lightgreen;
+	-fx-border-color: black;
+}
